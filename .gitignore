@@ -1,0 +1,27 @@
+# IDE specific files 
+
+.vscode
+
+
+# CMake generated files and directories
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Testing/
+
+# Executables and libraries (platform-specific)
+*.exe
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+
+# Object files
+*.o
+*.obj
+
+# Log files
+*.log
