@@ -74,7 +74,7 @@ std::pair<GroupIndex, double> University::get_grades_for_group(Department _depar
 
     unsigned counter = 0;
 
-    std::vector<int> grades;
+    std::vector<unsigned> grades;
 
     Junior* junior;
 

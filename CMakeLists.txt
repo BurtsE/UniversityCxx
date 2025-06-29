@@ -12,4 +12,4 @@ add_subdirectory(controller)
 add_subdirectory(application)
 
 
-
+add_subdirectory(tests)

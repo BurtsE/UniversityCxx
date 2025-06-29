@@ -5,7 +5,7 @@
 
 class Grades {
 private:
-    std::vector<int> grades;
+    std::vector<unsigned> grades;
     
 public:
     Grades(): grades(0){};
@@ -17,7 +17,7 @@ public:
 
     void setGrade(long unsigned int subject, unsigned result);
 
-    std::vector<int> get_values() { return grades; }
+    std::vector<unsigned> get_values() { return grades; }
 };
 
 #endif

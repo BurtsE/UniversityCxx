@@ -272,6 +272,19 @@ my_app/fast:
 	$(MAKE) $(MAKESILENT) -f application/CMakeFiles/my_app.dir/build.make application/CMakeFiles/my_app.dir/build
 .PHONY : my_app/fast
 
+#=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/model/CMakeFiles/tests.dir/build.make tests/model/CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -291,6 +304,7 @@ help:
 	@echo "... project"
 	@echo "... senior"
 	@echo "... student"
+	@echo "... tests"
 	@echo "... university"
 .PHONY : help
 
