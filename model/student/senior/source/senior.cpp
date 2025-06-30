@@ -6,13 +6,13 @@ Senior& Senior::set_session_grade(int subject, int result) {
 }
 
 Senior& Senior::set_project(std::string theme, std::string location) {
-    erw.setTheme(theme);
-    erw.setLocation(location);
+    erw.set_theme(theme);
+    erw.set_location(location);
     return *this;
 };
 
 Senior& Senior::set_projectgrade(int subject, int result) {
-    this->erw.setGrade(subject, result);
+    this->erw.set_grade(subject, result);
     return *this;
 }
 

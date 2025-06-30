@@ -7,21 +7,21 @@ TEST_CASE("PROJECT") {
         auto location = "location";
         auto project_type = ProjectType::ERW;
         Project p = Project(theme, location, project_type);
-        REQUIRE(p.getTheme() == theme);
-        REQUIRE(p.getLocation() == location);
+        REQUIRE(p.get_theme() == theme);
+        REQUIRE(p.get_location() == location);
     }
     SECTION("TYPE") {
-        REQUIRE(Project(ProjectType::ERW).getGrades().get_values().size() == 4);
-        REQUIRE(Project(ProjectType::GP).getGrades().get_values().size() == 5);
+        REQUIRE(Project(ProjectType::ERW).get_grades().get_values().size() == 4);
+        REQUIRE(Project(ProjectType::GP).get_grades().get_values().size() == 5);
     }
     SECTION("SETTERS") {
         auto theme = "theme";
         auto location = "location";
         auto project_type = ProjectType::ERW;
         Project p = Project(project_type);
-        p.setLocation(location);
-        p.setTheme(theme);
-        REQUIRE(p.getTheme() == theme);
-        REQUIRE(p.getLocation() == location);
+        p.set_location(location);
+        p.set_theme(theme);
+        REQUIRE(p.get_theme() == theme);
+        REQUIRE(p.get_location() == location);
     }
 }

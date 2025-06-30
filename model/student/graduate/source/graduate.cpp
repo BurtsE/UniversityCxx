@@ -2,13 +2,13 @@
 
 
 Graduate& Graduate::set_project(std::string theme, std::string location) {
-    gp.setTheme(theme);
-    gp.setLocation(location);
+    gp.set_theme(theme);
+    gp.set_location(location);
     return *this;
 };
 
 Graduate& Graduate::set_project_grade(int subject, int result) {
-    this->gp.setGrade(subject, result);
+    this->gp.set_grade(subject, result);
     return *this;
 }
 

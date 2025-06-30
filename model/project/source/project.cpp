@@ -1,13 +1,13 @@
 #include "project.hpp"
 
 Project::Project(ProjectType type) {
-    setupGrades(type);
+    setup_grades(type);
 };
 Project::Project(std::string _theme, std::string _location, ProjectType _type): theme(_theme), location(_location){
-    setupGrades(_type);
+    setup_grades(_type);
 };
 
-void Project::setupGrades(ProjectType type) {
+void Project::setup_grades(ProjectType type) {
     switch (type) {
         case ProjectType::ERW:
             this->grades = Grades(4);
