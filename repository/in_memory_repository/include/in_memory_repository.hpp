@@ -83,13 +83,13 @@ public:
         
     ~InMemoryTable() { delete[] students_;};
 
-    void addStudent(ITable::student_code key, std::shared_ptr<Student> student) override;
+    void add_student(ITable::student_code key, std::shared_ptr<Student> student) override;
 
-    std::shared_ptr<Student> getStudent(student_code code) override;
+    std::shared_ptr<Student> get_student(student_code code) override;
 
-    bool removeStudent(student_code code) override;
+    bool remove_student(student_code code) override;
 
-    std::vector<std::shared_ptr<Student>> getAllStudents() override;
+    std::vector<std::shared_ptr<Student>> get_all_students() override;
 
     std::shared_ptr<Student> operator[] (student_code code) override;
 

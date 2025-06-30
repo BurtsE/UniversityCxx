@@ -9,26 +9,26 @@
 void InMemoryTable::grow(){
     size_t newCap = cap * 2;
     if (cap == newCap ) throw std::overflow_error("table is unable to grow");
-    Cell* newValues = new Cell[newCap];
+    Cell* new_values = new Cell[newCap];
     for (size_t i = 0; i < cap; i++) {
         if (students_[i].student().get() != nullptr) {
             auto idx = students_[i].get_key() % newCap;
-            while (!newValues[idx].is_empty()) {
+            while (!new_values[idx].is_empty()) {
                 idx++;
                 if (idx==cap) {
                     idx = 0;
                 }
             }
-            newValues[idx] = std::move(students_[i]);
+            new_values[idx] = std::move(students_[i]);
         }
     }
     delete[] students_;  
-    students_ = newValues;
+    students_ = new_values;
     cap = newCap;
 }
 
 
-void InMemoryTable::addStudent(ITable::student_code key,std::shared_ptr<Student> student) {
+void InMemoryTable::add_student(ITable::student_code key,std::shared_ptr<Student> student) {
     std::lock_guard<std::shared_mutex> lock(mu);
 
     if (size >= cap / 4 * 3) {
@@ -52,7 +52,7 @@ void InMemoryTable::addStudent(ITable::student_code key,std::shared_ptr<Student>
 }
 
 
-std::shared_ptr<Student> InMemoryTable::getStudent(ITable::student_code code){
+std::shared_ptr<Student> InMemoryTable::get_student(ITable::student_code code){
     std::shared_lock<std::shared_mutex> lock(mu);
     auto idx = code % cap;
     while (!students_[idx].is_empty()) {
@@ -67,7 +67,7 @@ std::shared_ptr<Student> InMemoryTable::getStudent(ITable::student_code code){
 }
 
 
-bool InMemoryTable::removeStudent(ITable::student_code code) {
+bool InMemoryTable::remove_student(ITable::student_code code) {
     std::lock_guard<std::shared_mutex> lock(mu);
 
     auto idx = code%cap;
@@ -83,7 +83,7 @@ bool InMemoryTable::removeStudent(ITable::student_code code) {
     return false;
 }
 
-std::vector<std::shared_ptr<Student>> InMemoryTable::getAllStudents() {
+std::vector<std::shared_ptr<Student>> InMemoryTable::get_all_students() {
     std::shared_lock<std::shared_mutex> lock(mu);
 
     std::vector<std::shared_ptr<Student>> students;

@@ -10,13 +10,13 @@ ITable::student_code University::admission(std::string _name, GroupIndex _groupI
     auto student = StudentBuilder::create_student( _name, 
          _groupIndex,  _departmentNumber, StudentCategory::JUNIOR);
 
-    storage_.addStudent(next_code, student);
+    storage_.add_student(next_code, student);
     return next_code++;
 }
 
 void University::promote_student(ITable::student_code code) {
 
-    auto student = storage_.getStudent(code);
+    auto student = storage_.get_student(code);
     if (student.get() == nullptr) {
         throw std::invalid_argument("student does not exists");
     }
@@ -33,12 +33,12 @@ void University::promote_student(ITable::student_code code) {
         student.get()->getGroupIndex(), student.get()->getDepartmentNumber(), ++category);
 
 
-    storage_.addStudent(code, new_student);
+    storage_.add_student(code, new_student);
 }
 
 void University::expel_student(ITable::student_code code){
 
-    auto expelled = storage_.removeStudent(code);
+    auto expelled = storage_.remove_student(code);
 
     if (!expelled) {
         throw std::logic_error("could not expel student");
@@ -145,7 +145,7 @@ std::pair<GroupIndex, double> University::get_grades_for_group(Department _depar
 
 void University::set_student_session_grade(ITable::student_code code, size_t subject, unsigned grade) {
 
-    auto student = storage_.getStudent(code);
+    auto student = storage_.get_student(code);
 
     if (student == nullptr) {
         throw std::logic_error("invalid student code");

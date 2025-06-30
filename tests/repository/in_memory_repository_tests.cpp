@@ -9,13 +9,13 @@ TEST_CASE("IN_MEMORY_TABLE") {
     auto invalid_student_code = 500;
     auto student = std::make_shared<Student>(Student("", static_cast<GroupIndex>(0), static_cast<Department>(0)));
     SECTION("ADD STUDENT") {
-        table.addStudent(student_code, student);
-        REQUIRE( table.getStudent(student_code).get() == student.get()  );
+        table.add_student(student_code, student);
+        REQUIRE( table.get_student(student_code).get() == student.get()  );
         REQUIRE( table[student_code].get() == student.get());
     }
     SECTION("ITERATE") {
         for (auto& code : student_codes) {
-            table.addStudent(code, student);
+            table.add_student(code, student);
         }
         auto idx = 1;
         for (auto it = table.begin(); it != table.end(); ++it, ++idx) {
@@ -24,14 +24,14 @@ TEST_CASE("IN_MEMORY_TABLE") {
         }
     }
     SECTION("DELETE STUDENT") {
-        table.addStudent(student_code, student);
-        auto deleted = table.removeStudent(student_code);
+        table.add_student(student_code, student);
+        auto deleted = table.remove_student(student_code);
         REQUIRE( deleted == true  );
-        REQUIRE( table.removeStudent(invalid_student_code) == false);
+        REQUIRE( table.remove_student(invalid_student_code) == false);
     }
     SECTION("UNKNOWN STUDENT") {
-        table.removeStudent(student_code);
-        REQUIRE( table.getStudent(student_code).get() == nullptr );
+        table.remove_student(student_code);
+        REQUIRE( table.get_student(student_code).get() == nullptr );
     }
 
 

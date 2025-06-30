@@ -12,13 +12,13 @@ public:
  
     virtual ~ITable() = default;
 
-    virtual void addStudent(student_code key, std::shared_ptr<Student> student) = 0;
+    virtual void add_student(student_code key, std::shared_ptr<Student> student) = 0;
 
-    virtual std::shared_ptr<Student> getStudent(student_code code) = 0;
+    virtual std::shared_ptr<Student> get_student(student_code code) = 0;
 
-    virtual bool removeStudent(student_code code) = 0;
+    virtual bool remove_student(student_code code) = 0;
 
-    virtual std::vector<std::shared_ptr<Student>> getAllStudents() = 0;
+    virtual std::vector<std::shared_ptr<Student>> get_all_students() = 0;
 
     virtual std::shared_ptr<Student> operator[] (student_code code) = 0;
 
