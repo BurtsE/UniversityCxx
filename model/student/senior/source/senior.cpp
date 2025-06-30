@@ -1,21 +1,21 @@
 #include "senior.hpp"
 
-Senior& Senior::setSessionGrade(int subject, int result) {
+Senior& Senior::set_session_grade(int subject, int result) {
     this->sessionGrades.set_grade(subject, result);
     return *this;
 }
 
-Senior& Senior::setProject(std::string theme, std::string location) {
+Senior& Senior::set_project(std::string theme, std::string location) {
     erw.setTheme(theme);
     erw.setLocation(location);
     return *this;
 };
 
-Senior& Senior::setProjectGrade(int subject, int result) {
+Senior& Senior::set_projectgrade(int subject, int result) {
     this->erw.setGrade(subject, result);
     return *this;
 }
 
-StudentCategory Senior::getCategory(){
+StudentCategory Senior::get_category(){
     return StudentCategory::SENIOR;
 }

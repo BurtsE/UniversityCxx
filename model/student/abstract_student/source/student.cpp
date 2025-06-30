@@ -49,7 +49,7 @@ std::ostream& operator<<(std::ostream& s, const Student& student){
     return s;
 }
 
-StudentCategory Student::getCategory() {
+StudentCategory Student::get_category() {
     return StudentCategory::UNDEFINED;
 }
 

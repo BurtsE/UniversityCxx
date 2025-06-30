@@ -1,10 +1,10 @@
 #include "junior.hpp"
 
 
-StudentCategory Junior::getCategory(){
+StudentCategory Junior::get_category(){
     return StudentCategory::JUNIOR;
 }
-void Junior::setSessionGrade(int subject, int result) {
+void Junior::set_session_grade(int subject, int result) {
     this->sessionGrades.set_grade(subject, result);
 }
 

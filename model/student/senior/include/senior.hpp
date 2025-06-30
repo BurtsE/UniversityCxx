@@ -21,15 +21,14 @@ public:
     Senior(Senior&&) = default;
     ~Senior() override = default;
 
-    Grades getSessionGrades() { return this->sessionGrades; }
-    Project getProject() { return this->erw; }
+    Grades get_session_grades() { return this->sessionGrades; }
+    Project get_project() { return this->erw; }
     
-    Senior& setSessionGrade(int subject, int result);
-    Senior& setProjectGrade(int subject, int result);
-    Senior& setProject(std::string _theme, std::string _location);
+    Senior& set_session_grade(int subject, int result);
+    Senior& set_projectgrade(int subject, int result);
+    Senior& set_project(std::string _theme, std::string _location);
 
-    StudentCategory getCategory() override;
+    StudentCategory get_category() override;
 
-    Grades get_session_grades() { return sessionGrades; };
 };
 

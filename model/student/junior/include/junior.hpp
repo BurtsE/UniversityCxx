@@ -16,8 +16,8 @@ public:
     Junior(Junior&&) = default;
     ~Junior() override = default;
 
-    void setSessionGrade(int subject, int result);
-    StudentCategory getCategory() override;
+    void set_session_grade(int subject, int result);
+    StudentCategory get_category() override;
     Grades get_session_grades() { return sessionGrades; };
 };
 

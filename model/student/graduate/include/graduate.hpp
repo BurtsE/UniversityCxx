@@ -14,12 +14,12 @@ public:
     Graduate(Graduate&&) = default;
     ~Graduate() override = default;
 
-    Project getProject() { return this->gp; }
+    Project get_project() { return this->gp; }
 
-    Graduate& setProjectGrade(int subject, int result);
-    Graduate& setProject(std::string _theme, std::string _location);
+    Graduate& set_project_grade(int subject, int result);
+    Graduate& set_project(std::string _theme, std::string _location);
 
-    StudentCategory getCategory() override;
+    StudentCategory get_category() override;
 
 };
 

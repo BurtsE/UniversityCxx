@@ -9,15 +9,15 @@ TEST_CASE("STUDENT") {
     auto department_number = Department::PK;
     Student s = Student(name, group_index, department_number);
     SECTION("CONSTRUCTOR") {
-        REQUIRE( s.getName() == name );
-        REQUIRE( s.getCategory() == StudentCategory::UNDEFINED );
-        REQUIRE( s.getGroupIndex() == group_index );
-        REQUIRE( s.getDepartmentNumber() == department_number );
+        REQUIRE( s.get_name() == name );
+        REQUIRE( s.get_category() == StudentCategory::UNDEFINED );
+        REQUIRE( s.get_group_index() == group_index );
+        REQUIRE( s.get_department_number() == department_number );
     }
     SECTION("SETTER") {   
         auto group_index2 = GroupIndex::B;
-        s.setGroupIndex(group_index2);
-        REQUIRE( s.getGroupIndex() == group_index2 );
+        s.set_group_index(group_index2);
+        REQUIRE( s.get_group_index() == group_index2 );
     }
 }
 
@@ -27,16 +27,16 @@ TEST_CASE("JUNIOR") {
     auto department_number = Department::PK;
     Junior j = Junior(name, group_index, department_number);
     SECTION("CONSTRUCTOR") {
-        REQUIRE( j.getName() == name );
-        REQUIRE( j.getCategory() == StudentCategory::JUNIOR );
-        REQUIRE( j.getGroupIndex() == group_index );
-        REQUIRE( j.getDepartmentNumber() == department_number );
+        REQUIRE( j.get_name() == name );
+        REQUIRE( j.get_category() == StudentCategory::JUNIOR );
+        REQUIRE( j.get_group_index() == group_index );
+        REQUIRE( j.get_department_number() == department_number );
         REQUIRE( j.get_session_grades().get_values().size() == 5 );
     }
     SECTION("SETTER") {
         auto subject = 0;
         unsigned grade = 4;
-        j.setSessionGrade(subject, grade);
+        j.set_session_grade(subject, grade);
         REQUIRE( j.get_session_grades().get_values().at(subject) == grade );
     }
 }

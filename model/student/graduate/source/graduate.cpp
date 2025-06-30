@@ -1,17 +1,17 @@
 #include "graduate.hpp"
 
 
-Graduate& Graduate::setProject(std::string theme, std::string location) {
+Graduate& Graduate::set_project(std::string theme, std::string location) {
     gp.setTheme(theme);
     gp.setLocation(location);
     return *this;
 };
 
-Graduate& Graduate::setProjectGrade(int subject, int result) {
+Graduate& Graduate::set_project_grade(int subject, int result) {
     this->gp.setGrade(subject, result);
     return *this;
 }
 
-StudentCategory Graduate::getCategory(){
+StudentCategory Graduate::get_category(){
     return StudentCategory::GRADUATE;
 }

@@ -25,13 +25,13 @@ public:
     Student(Student&&) = default;
     virtual ~Student() = default;
 
-    std::string getName() { return this->name; }
-    GroupIndex getGroupIndex() { return this->idx; }
-    Department getDepartmentNumber() { return this->departmentNumber; }
+    std::string get_name() { return this->name; }
+    GroupIndex get_group_index() { return this->idx; }
+    Department get_department_number() { return this->departmentNumber; }
 
-    void setGroupIndex(GroupIndex index) {this->idx = index;}
+    void set_group_index(GroupIndex index) {this->idx = index;}
 
-    virtual StudentCategory getCategory();
+    virtual StudentCategory get_category();
 
     friend std::ostream& operator<<(std::ostream&, const Student&);
 };

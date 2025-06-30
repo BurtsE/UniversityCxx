@@ -21,7 +21,7 @@ void University::promote_student(ITable::student_code code) {
         throw std::invalid_argument("student does not exists");
     }
 
-    auto category = student.get()->getCategory();
+    auto category = student.get()->get_category();
 
     if (category == StudentCategory::GRADUATE) {
         throw std::logic_error("student already graduated");
@@ -29,8 +29,8 @@ void University::promote_student(ITable::student_code code) {
 
  
 
-    auto new_student = StudentBuilder::create_student(student.get()->getName(), 
-        student.get()->getGroupIndex(), student.get()->getDepartmentNumber(), ++category);
+    auto new_student = StudentBuilder::create_student(student.get()->get_name(), 
+        student.get()->get_group_index(), student.get()->get_department_number(), ++category);
 
 
     storage_.add_student(code, new_student);
@@ -84,13 +84,13 @@ std::pair<GroupIndex, double> University::get_grades_for_group(Department _depar
 
         auto s = (*it).second.get();
 
-        if (s->getDepartmentNumber() != _departmentNumber)
+        if (s->get_department_number() != _departmentNumber)
             continue;
 
-        if (s->getGroupIndex() != _groupIndex)
+        if (s->get_group_index() != _groupIndex)
             continue;
 
-        switch (s->getCategory()) {
+        switch (s->get_category()) {
 
         case StudentCategory::GRADUATE: continue;
 
@@ -151,7 +151,7 @@ void University::set_student_session_grade(ITable::student_code code, size_t sub
         throw std::logic_error("invalid student code");
     }
 
-    auto category = student->getCategory();
+    auto category = student->get_category();
     
     Junior* j;
     Senior* s;
@@ -159,11 +159,11 @@ void University::set_student_session_grade(ITable::student_code code, size_t sub
     switch (category) {
     case StudentCategory::JUNIOR:
         j = static_cast<Junior*>(student.get());
-        j->setSessionGrade(subject, grade);
+        j->set_session_grade(subject, grade);
         break;
     case StudentCategory::SENIOR:
         s = static_cast<Senior*>(student.get());
-        s->setSessionGrade(subject, grade);
+        s->set_session_grade(subject, grade);
         break;
     default:
         throw std::logic_error("can not set session grade");
