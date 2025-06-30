@@ -7,7 +7,7 @@
 
 ITable::student_code University::admission(std::string _name, GroupIndex _groupIndex, Department _departmentNumber) {
 
-    auto student = StudentBuilder::CreateStudent( _name, 
+    auto student = StudentBuilder::create_student( _name, 
          _groupIndex,  _departmentNumber, StudentCategory::JUNIOR);
 
     storage_.addStudent(next_code, student);
@@ -29,8 +29,8 @@ void University::promote_student(ITable::student_code code) {
 
  
 
-    auto new_student = StudentBuilder::CreateStudent(student.get()->getName(), 
-        student.get()->getGroupIndex(), student.get()->getDepartmentNumber(), student.get()->getCategory());
+    auto new_student = StudentBuilder::create_student(student.get()->getName(), 
+        student.get()->getGroupIndex(), student.get()->getDepartmentNumber(), ++category);
 
 
     storage_.addStudent(code, new_student);

@@ -1,6 +1,6 @@
 #include "builder.hpp"
 
-std::shared_ptr<Student> StudentBuilder::CreateStudent(std::string name, GroupIndex groupIndex, Department departmentNumber, StudentCategory category) {
+std::shared_ptr<Student> StudentBuilder::create_student(std::string name, GroupIndex groupIndex, Department departmentNumber, StudentCategory category) {
 
     auto group_index = static_cast<int> (groupIndex);
     if (0 > group_index  ||  group_index > 5 ) {

@@ -8,7 +8,7 @@
 
 class StudentBuilder {
 public:
-    static std::shared_ptr<Student> CreateStudent(std::string _name, GroupIndex _groupIndex, Department _departmentNumber, StudentCategory category);
+    static std::shared_ptr<Student> create_student(std::string _name, GroupIndex _groupIndex, Department _departmentNumber, StudentCategory category);
     StudentBuilder() = delete;
 };
 

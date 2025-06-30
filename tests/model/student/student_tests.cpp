@@ -35,7 +35,7 @@ TEST_CASE("JUNIOR") {
     }
     SECTION("SETTER") {
         auto subject = 0;
-        auto grade = 4;
+        unsigned grade = 4;
         j.setSessionGrade(subject, grade);
         REQUIRE( j.get_session_grades().get_values().at(subject) == grade );
     }
