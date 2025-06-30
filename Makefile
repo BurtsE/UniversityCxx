@@ -1,3 +1,5 @@
+
+
 generate_coverage_html:
 	# Capturing initial coverage data: 
 	lcov --capture --initial --directory . --output-file initial.info
@@ -10,3 +12,4 @@ generate_coverage_html:
 
 	# Generating HTML report:
 	genhtml total.info --output-directory coverage_report
+
