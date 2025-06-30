@@ -5,11 +5,24 @@
 #include <shared_mutex>
 #include <mutex>
 
-
+/**
+ * @brief Hash table for storing information about students in memory
+ * 
+ * Thread safe, but stores pointers to objects, which should not be modified
+ * 
+ * Stores data as a vector of Cells.
+ * 
+ */
 class InMemoryTable: public ITable {
 
 private:  
 
+    /**
+     * @brief Class for storing data in table
+     * 
+     * Includes key, pointer to object and deleted mark
+     * 
+     */
     class Cell {
     private:
 
@@ -29,10 +42,29 @@ private:
 
         ITable::student_code get_key() { return key; }
 
+        /**
+         * @brief Method checks if cell was never filled
+         * 
+         * Needed for avoiding collision 
+         * 
+         * @return true 
+         * @return false 
+         */
         bool is_empty() { return value.get() == nullptr && !is_deleted; }
 
+        /**
+         * @brief Method points that cell was deleted, removing ptr
+         * 
+         */
         void remove() { value = nullptr; is_deleted = true; }
     };
+
+    /**
+     * @brief Class for iterating through table
+     * 
+     * Thread safe
+     * 
+     */
     class Iterator{
 
         using iterator_category = std::forward_iterator_tag;
@@ -83,14 +115,43 @@ public:
         
     ~InMemoryTable() { delete[] students_;};
 
+    /**
+     * @brief Method for addintion of a new student to table
+     * 
+     * Collisions are avoided by increment
+     * 
+     * @param key 
+     * @param student 
+     */
     void add_student(ITable::student_code key, std::shared_ptr<Student> student) override;
 
+    /**
+     * @brief Get the student object
+     * 
+     * @param code 
+     * @return std::shared_ptr<Student> 
+     */
     std::shared_ptr<Student> get_student(student_code code) override;
 
+    /**
+     * @brief Removing student
+     * 
+     * Collisions are avoided
+     * 
+     * @param code 
+     * @return true 
+     * @return false 
+     */
     bool remove_student(student_code code) override;
 
     std::vector<std::shared_ptr<Student>> get_all_students() override;
 
+    /**
+     * @brief Same as get_student method
+     * 
+     * @param code 
+     * @return std::shared_ptr<Student> 
+     */
     std::shared_ptr<Student> operator[] (student_code code) override;
 
     Iterator begin() {
