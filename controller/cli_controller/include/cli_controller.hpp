@@ -3,6 +3,13 @@
 #include <abstract_controller.hpp>
 #include <university.hpp>
 
+
+/**
+ * @brief Implementation of a controller
+ * 
+ * Works with command line
+ * 
+ */
 class CLIController : public IController {
 public:
     CLIController(University& university): university_(university){};

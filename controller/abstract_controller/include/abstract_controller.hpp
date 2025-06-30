@@ -1,5 +1,8 @@
 #pragma once
-
+/**
+ * @brief Controller interface for the app
+ * 
+ */
 class IController {
 public:
     virtual ~IController() = default;
