@@ -29,7 +29,7 @@ public:
     void setTheme(std::string _theme) { this->theme = _theme; }
     void setLocation(std::string _location) { this->location = _location; }
 
-    void setGrade(int subject, int result) { this->grades.setGrade(subject, result); };
+    void setGrade(int subject, int result) { this->grades.set_grade(subject, result); };
 };
 
 #endif

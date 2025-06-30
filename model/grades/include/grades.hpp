@@ -15,7 +15,7 @@ public:
     Grades& operator=(const Grades&) = default;
     ~Grades() = default;
 
-    void setGrade(long unsigned int subject, unsigned result);
+    void set_grade(long unsigned int subject, unsigned result);
 
     std::vector<unsigned> get_values() { return grades; }
 };

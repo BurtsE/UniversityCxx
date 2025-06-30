@@ -1,7 +1,7 @@
 #include "senior.hpp"
 
 Senior& Senior::setSessionGrade(int subject, int result) {
-    this->sessionGrades.setGrade(subject, result);
+    this->sessionGrades.set_grade(subject, result);
     return *this;
 }
 

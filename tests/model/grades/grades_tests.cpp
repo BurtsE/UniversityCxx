@@ -13,13 +13,13 @@ TEST_CASE("GRADES") {
         auto g = Grades(5);
 
         for (unsigned i = 0; i < 5; ++i) {
-            g.setGrade(i , i);
+            g.set_grade(i , i);
             REQUIRE( g.get_values().at(i) == i );
         }
     }
     SECTION("THROW") {
         unsigned subject = 5;
         auto g = Grades(subject);
-        REQUIRE_THROWS( g.setGrade(subject, 1) );
+        REQUIRE_THROWS( g.set_grade(subject, 1) );
     }
 }
