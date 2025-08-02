@@ -1,5 +1,13 @@
 # Домашнее задание №5
 
+## Описание задачи:
+
+Файл находится в директории task
+
+## Диаграмма классов:
+
+<img src="https://github.com/BurtsE/UniversityCxx/blob/main/scheme/Class%20diagram.png">
+
 ## Cборка проекта:
 
 mkdir build && cd build
